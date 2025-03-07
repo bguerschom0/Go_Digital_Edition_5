@@ -32,7 +32,7 @@ const InternshipOverview = () => {
     startDate: null,
     endDate: null,
   });
-
+ 
   // Fetch internships on component mount and when filters change
   useEffect(() => {
     fetchInternships();
