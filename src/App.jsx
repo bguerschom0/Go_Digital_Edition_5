@@ -20,9 +20,9 @@ import ManagerDashboard from './pages/dashboard/ManagerDashboard';
 
 
 // Background Pages
-import NewBackground from '@/pages/background/NewBackground'
-import UpdateBackground from '@/pages/background/UpdateBackground'
-import InternshipOverview from '@/pages/background/InternshipOverview'
+import NewBackground from './pages/background/NewBackground';
+import UpdateBackground from '@/pages/background/UpdateBackground';
+import InternshipOverview from '@/pages/background/InternshipOverview';
 
 
 // Contact Page
