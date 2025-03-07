@@ -13,7 +13,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button'; 
 import { useAuth } from '@/context/AuthContext';
 import { supabase } from '@/config/supabase';
 
