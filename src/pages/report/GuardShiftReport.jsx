@@ -702,7 +702,7 @@ const notesY = incidentReportY + incidentReportHeight + 30; // 30px gap
                 <div>
                   <div className="flex items-center space-x-3">
                     <Shield className="w-8 h-8 text-gray-600 dark:text-gray-400" />
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Security Report Details</h2>
+                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Guard Shift Report</h2>
                   </div>
                   <div className="mt-2 flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400">
                     <span className="flex items-center">
@@ -937,9 +937,8 @@ const notesY = incidentReportY + incidentReportHeight + 30; // 30px gap
           
           <button
             onClick={exportAllReports}
-            className="flex items-center space-x-2 px-4 py-2 bg-gray-900 dark:bg-gray-700 
-                     text-white rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600 
-                     transition-colors"
+            className="flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg
+                      hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
           >
             <FileSpreadsheet className="w-5 h-5" />
             <span>Export All Reports</span>
@@ -1244,9 +1243,8 @@ const notesY = incidentReportY + incidentReportHeight + 30; // 30px gap
                               setSelectedReport(report);
                               setShowReportModal(true);
                             }}
-                            className="inline-flex items-center px-3 py-1.5 rounded-lg text-sm
-                                     bg-gray-900 text-white hover:bg-gray-800 dark:bg-gray-700 
-                                     dark:hover:bg-gray-600 transition-colors"
+                            className="flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg
+                      hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
                           >
                             <Eye className="w-4 h-4 mr-1.5" />
                             View
