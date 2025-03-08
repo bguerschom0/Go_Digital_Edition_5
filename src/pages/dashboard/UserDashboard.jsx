@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '../../components/ui/card'; 
 import { Button } from '../../components/ui/button';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../hooks/useAuth';
 import { supabase } from '../../config/supabase';
 
 const UserDashboard = () => {
