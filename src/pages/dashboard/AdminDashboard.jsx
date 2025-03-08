@@ -5,7 +5,7 @@ import { useAuth } from '../../hooks/useAuth';
 const AdminDashboard = () => {
   // Add a conditional check to prevent destructuring undefined
   const auth = useAuth();
-  const username = auth?.user?.full_name || auth?.user?.username || 'Admin';
+  const username = auth?.user?.full_name || auth?.user?.username;
   
   const getGreeting = () => {
     const hour = new Date().getHours();
@@ -19,7 +19,7 @@ const AdminDashboard = () => {
     }
   };
 
-  const username = user?.full_name || user?.username || 'Admin';
+  const username = user?.full_name || user?.username;
 
   return (
     <div className="p-6">
