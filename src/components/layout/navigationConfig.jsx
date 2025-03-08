@@ -7,51 +7,44 @@ export const roleBasedNavigation = {
       path: '/admindashboard', 
       icon: LayoutDashboard 
     },
-    
     {
       name: 'User Management',
       path: '/user-management',
       icon: UserCog
     },
-
     {
-      title: 'Internship Overview',
-      icon: <UserCheck className="w-5 h-5" />,
+      name: 'Internship Overview',
+      icon: UserCheck,
       children: [
         {
-          title: 'New Internship',
-          icon: <FileText className="w-5 h-5" />,
-          href: '/newbackground'
+          name: 'New Internship',
+          path: '/newbackground',
+          icon: FileText
         },
         {
-          title: 'Update Internship',
-          icon: <Edit className="w-5 h-5" />,
-          href: '/updatebackground'
+          name: 'Update Internship',
+          path: '/updatebackground',
+          icon: Edit
         },
-
         {
-          title: 'Internship Overview',
-          icon: <GraduationCap className="w-5 h-5" />,
-          href: '/internshipoverview'
+          name: 'Internship Overview',
+          path: '/internshipoverview',
+          icon: GraduationCap
         },
       ]
     },
-
     {
       name: 'Contact Support',
       path: '/contact',
       icon: MessageSquare
     }
-
   ],
-
   manager: [
     { 
       name: 'Dashboard', 
       path: '/managerdashboard', 
       icon: LayoutDashboard 
     }
-
   ],
   supervisor: [
     { 
@@ -59,7 +52,6 @@ export const roleBasedNavigation = {
       path: '/supervisordashboard', 
       icon: LayoutDashboard 
     }
-
   ],
   security_guard: [
     { 
@@ -73,12 +65,54 @@ export const roleBasedNavigation = {
       name: 'Dashboard', 
       path: '/userdashboard', 
       icon: LayoutDashboard 
+    },
+    {
+      name: 'Internship Overview',
+      path: '/internshipoverview',
+      icon: GraduationCap
+    }
+  ],
+
+  user1: [
+    { 
+      name: 'Dashboard', 
+      path: '/userdashboard', 
+      icon: LayoutDashboard 
+    },
+    {
+      name: 'Internship Overview',
+      path: '/internshipoverview',
+      icon: GraduationCap
+    }
+  ],
+  // Add new user2 role with same navigation as user
+  user2: [
+    { 
+      name: 'Dashboard', 
+      path: '/userdashboard', 
+      icon: LayoutDashboard 
     }
   ]
 };
 
-
-
-
-
-  
+// Also update the getRoleDisplayName function in Header.js
+export const getRoleDisplayName = (role) => {
+  switch(role) {
+    case 'admin':
+      return 'Administrator';
+    case 'manager':
+      return 'Manager';
+    case 'supervisor':
+      return 'Supervisor';
+    case 'security_guard':
+      return 'Security Guard';
+    case 'user':
+      return 'User';
+    case 'user1':
+      return 'User Level 1';
+    case 'user2':
+      return 'User Level 2';
+    default:
+      return role;
+  }
+};
