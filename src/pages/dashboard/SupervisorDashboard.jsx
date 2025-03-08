@@ -18,8 +18,7 @@ const SupervisorDashboard = () => {
       return 'Good Evening';
     }
   };
- 
-  const username = user?.full_name || user?.username;
+
 
   return (
     <div className="p-6">
