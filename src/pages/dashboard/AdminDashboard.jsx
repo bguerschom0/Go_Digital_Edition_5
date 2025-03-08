@@ -30,7 +30,7 @@ const AdminDashboard = () => {
             transition={{ duration: 0.5 }}
           >
             <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-              {getGreeting()}, {full_name}
+              {getGreeting()}, {username}
             </h1>
             <p className="mt-2 text-gray-600 dark:text-gray-400">
               Welcome to Go Digital Edition 5
