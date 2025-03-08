@@ -5,7 +5,6 @@ import { Moon, Sun, ChevronDown, User, LogOut, Menu, X, UserCircle } from 'lucid
 import { roleBasedNavigation } from './navigationConfig';
 import { Dialog, DialogContent } from '../ui/dialog';
 import { getRoleBasedDashboard } from '../../utils/roleRoutes';
-import NotificationBell from '../notifications/NotificationBell';
 
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -204,11 +203,9 @@ const Header = () => {
               </nav>
             </div>
 
-            {/* Desktop User Menu and Notifications */}
+            {/* Desktop User Menu */}
             {user && (
-              <div className="hidden md:flex items-center space-x-4">
-                <NotificationBell />
-                
+              <div className="hidden md:flex items-center">
                 <div className="relative" ref={dropdownRef}>
                   <button
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -344,19 +341,6 @@ const Header = () => {
               </nav>
 
               <div className="p-4 border-t border-gray-200 dark:border-gray-700">
-                <div className="mb-2">
-                  <button
-                    onClick={() => {
-                      setIsMobileMenuOpen(false);
-                      navigate('/notifications');
-                    }}
-                    className="flex items-center w-full px-3 py-2 rounded-md text-sm text-gray-900 
-                             dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800"
-                  >
-                    <NotificationBell isMobile={true} />
-                    <span className="ml-2">Notifications</span>
-                  </button>
-                </div>
                 <button
                   onClick={handleProfileClick}
                   className="flex items-center w-full px-3 py-2 rounded-md text-sm text-gray-900 
