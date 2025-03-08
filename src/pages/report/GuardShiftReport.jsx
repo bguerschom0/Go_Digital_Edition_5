@@ -743,7 +743,7 @@ const notesY = incidentReportY + incidentReportHeight + 30; // 30px gap
               {/* Basic Info */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="p-4 border rounded-lg dark:border-gray-700">
-                  <p className="text-sm text-gray-500 dark:text-gray-400">Shift Type</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">Shift</p>
                   <p className="text-lg font-semibold text-gray-900 dark:text-white">
                     {report.shift_type.toUpperCase()}
                   </p>
@@ -931,11 +931,8 @@ const notesY = incidentReportY + incidentReportHeight + 30; // 30px gap
         <div className="flex justify-between items-center mb-8">
           <div>
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-              Security Reports Dashboard
+              Guard Shift Reports
             </h1>
-            <p className="mt-1 text-gray-500 dark:text-gray-400">
-              Monitor and manage security shift reports
-            </p>
           </div>
           
           <button
