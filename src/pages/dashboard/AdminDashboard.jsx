@@ -1,11 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../hooks/useAuth';
 
 const AdminDashboard = () => {
   // Add a conditional check to prevent destructuring undefined
   const auth = useAuth();
-  const user = auth?.user;
+  const username = auth?.user?.full_name || auth?.user?.username || 'Admin';
   
   const getGreeting = () => {
     const hour = new Date().getHours();
@@ -32,7 +32,7 @@ const AdminDashboard = () => {
             transition={{ duration: 0.5 }}
           >
             <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-              {getGreeting()}, {username}
+              {getGreeting()}, {full_name}
             </h1>
             <p className="mt-2 text-gray-600 dark:text-gray-400">
               Welcome to Go Digital Edition 5
