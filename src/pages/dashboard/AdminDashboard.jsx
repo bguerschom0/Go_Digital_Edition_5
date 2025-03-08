@@ -13,9 +13,9 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card'; 
-import { Button } from '@/components/ui/button';
-import { useAuth } from '@/context/AuthContext';
-import { supabase } from '@/config/supabase';
+import { Button } from '../../components/ui/button';
+import { useAuth } from '../../context/AuthContext';
+import { supabase } from '../../config/supabase';
 
 const AdminDashboard = () => {
   const { user } = useAuth();
