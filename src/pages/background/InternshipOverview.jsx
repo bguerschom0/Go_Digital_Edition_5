@@ -16,7 +16,7 @@ import { Card, CardHeader, CardTitle, CardContent } from '../../components/ui/ca
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { format } from 'date-fns';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../hooks/useAuth';
 import Papa from 'papaparse';
 import departments from './departments';
 
