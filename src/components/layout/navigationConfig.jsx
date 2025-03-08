@@ -1,9 +1,4 @@
-import { 
-  LayoutDashboard,
-  UserCog,
-  MessageSquare,
-
-} from 'lucide-react';
+import { LayoutDashboard, UserCog, MessageSquare, GraduationCap, UserCheck, FileText, Edit } from 'lucide-react';
 
 export const roleBasedNavigation = {
   administrator: [
