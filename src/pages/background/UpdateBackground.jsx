@@ -10,7 +10,7 @@ import {
   X
 } from 'lucide-react';
 import { supabase } from '../../config/supabase';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../hooks/useAuth';
 import departments from './departments';
  
 // Alert/Popup Component
