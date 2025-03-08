@@ -71,7 +71,7 @@ const App = () => {
       <Route path="/admindashboard" element={<ProtectedRoute requiredRoles={['admin']}><AuthenticatedLayout><AdminDashboard /></AuthenticatedLayout></ProtectedRoute>} />
       <Route path="/securityguarddashboard" element={<ProtectedRoute requiredRoles={['admin','security_guard']}><AuthenticatedLayout><SecurityGuardDashboard /></AuthenticatedLayout></ProtectedRoute>} />
       <Route path="/supervisordashboard" element={<ProtectedRoute requiredRoles={['admin','supervisor']}><AuthenticatedLayout><SupervisorDashboard /></AuthenticatedLayout></ProtectedRoute>} />
-      <Route path="/userdashboard" element={<ProtectedRoute requiredRoles={['admin','user']}><AuthenticatedLayout><UserDashboard /></AuthenticatedLayout></ProtectedRoute>} />
+      <Route path="/userdashboard" element={<ProtectedRoute requiredRoles={['admin','user', 'user1', 'user2']}><AuthenticatedLayout><UserDashboard /></AuthenticatedLayout></ProtectedRoute>} />
       <Route path="/managerdashboard" element={<ProtectedRoute requiredRoles={['admin','manager']}><AuthenticatedLayout><ManagerDashboard /></AuthenticatedLayout></ProtectedRoute>} />
       
       {/* Background Check routes */}
