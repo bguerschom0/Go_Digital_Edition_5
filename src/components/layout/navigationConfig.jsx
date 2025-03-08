@@ -1,4 +1,4 @@
-import { LayoutDashboard, UserCog, MessageSquare, GraduationCap, UserCheck, FileText, Edit } from 'lucide-react';
+import { LayoutDashboard, UserCog, MessageSquare, GraduationCap, UserCheck, FileText, Edit, BarChart, ClipboardList } from 'lucide-react';
 
 export const roleBasedNavigation = {
   admin: [
@@ -6,6 +6,11 @@ export const roleBasedNavigation = {
       name: 'Dashboard', 
       path: '/admindashboard', 
       icon: LayoutDashboard 
+    },
+        { 
+      name: 'Guard Shift Report', 
+      path: '/GuardShiftForm', 
+      icon: ClipboardList
     },
     {
       name: 'User Management',
@@ -34,6 +39,13 @@ export const roleBasedNavigation = {
       ]
     },
     {
+      name: 'Reports',
+      icon: BarChart,
+      children: [
+        { name: 'Guard Shift Report', path: '/GuardShiftReport', icon: BarChart }
+      ]
+    },
+    {
       name: 'Contact Support',
       path: '/contact',
       icon: MessageSquare
@@ -44,6 +56,13 @@ export const roleBasedNavigation = {
       name: 'Dashboard', 
       path: '/managerdashboard', 
       icon: LayoutDashboard 
+    },
+    {
+      name: 'Reports',
+      icon: BarChart,
+      children: [
+        { name: 'Guard Shift Report', path: '/GuardShiftReport', icon: BarChart }
+      ]
     }
   ],
   supervisor: [
@@ -51,7 +70,12 @@ export const roleBasedNavigation = {
       name: 'Dashboard', 
       path: '/supervisordashboard', 
       icon: LayoutDashboard 
-    }
+    },
+    { 
+      name: 'Guard Shift Report', 
+      path: '/GuardShiftForm', 
+      icon: ClipboardList
+    },
   ],
   security_guard: [
     { 
@@ -85,7 +109,7 @@ export const roleBasedNavigation = {
       icon: GraduationCap
     }
   ],
-  // Add new user2 role with same navigation as user
+
   user2: [
     { 
       name: 'Dashboard', 
