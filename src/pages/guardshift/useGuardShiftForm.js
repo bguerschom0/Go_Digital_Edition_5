@@ -94,84 +94,87 @@ export const useGuardShiftForm = () => {
     });
   };
 
-  const handleSubmit = async () => {
-    setLoading(true);
-    
-    try {
-      // Format data for database submission
-      const submissionData = {
-        submitted_by: user?.username || 'unknown',
-        location: formData.location,
-        shift_type: formData.shiftType,
-        shift_start_time: formData.shiftStartTime,
-        shift_end_time: formData.shiftEndTime,
-        team_members: formData.teamMembers,
-        cctv_status: formData.cctvStatus,
-        cctv_issues: formData.cctvIssues || null,
-        cctv_supervision_reason: formData.cctvStatus === 'not-supervised' ? formData.cctvSupervisionReason : null,
-        cctv_supervision_other_reason: 
-          formData.cctvStatus === 'not-supervised' && 
-          formData.cctvSupervisionReason === 'other' ? 
-          formData.cctvSupervisionOtherReason : null,
-        electricity_status: formData.electricityStatus,
-        water_status: formData.waterStatus,
-        office_status: formData.officeStatus,
-        parking_status: formData.parkingStatus,
-        incident_occurred: formData.incidentOccurred,
-        incident_type: formData.incidentOccurred ? formData.incidentType : null,
-        incident_time: formData.incidentOccurred ? formData.incidentTime : null,
-        incident_location: formData.incidentOccurred ? formData.incidentLocation : null,
-        incident_description: formData.incidentOccurred ? formData.incidentDescription : null,
-        action_taken: formData.incidentOccurred ? formData.actionTaken : null,
-        notes: formData.notes || null,
-        created_at: new Date().toISOString()
-      };
-
-      console.log('Submitting data to Supabase:', submissionData);
-
-      // Insert data into the guard_shift_reports table
-      const { error: submitError } = await supabase
-        .from('guard_shift_reports')
-        .insert([submissionData]);
-
-      if (submitError) {
-        console.error('Supabase error:', submitError);
-        throw submitError;
-      }
+const handleSubmit = async () => {
+  setLoading(true);
+  
+  try {
+    // Format data for database submission
+    const submissionData = {
+      submitted_by: user?.username || 'unknown',
+      location: formData.location,
+      shift_type: formData.shiftType,
+      shift_start_time: formData.shiftStartTime,
+      shift_end_time: formData.shiftEndTime,
+      team_members: formData.teamMembers,
+      cctv_status: formData.cctvStatus,
+      cctv_issues: formData.cctvIssues || null,
       
-      showToast('Report submitted successfully!', 'success');
+      // Correctly handle the CCTV supervision fields
+      cctv_supervision_reason: formData.cctvStatus === 'not-supervised' ? formData.cctvSupervisionReason : null,
+      cctv_supervision_other_reason: 
+        formData.cctvStatus === 'not-supervised' && 
+        formData.cctvSupervisionReason === 'other' ? 
+        formData.cctvSupervisionOtherReason : null,
+        
+      electricity_status: formData.electricityStatus,
+      water_status: formData.waterStatus,
+      office_status: formData.officeStatus,
+      parking_status: formData.parkingStatus,
+      incident_occurred: formData.incidentOccurred,
+      incident_type: formData.incidentOccurred ? formData.incidentType : null,
+      incident_time: formData.incidentOccurred ? formData.incidentTime : null,
+      incident_location: formData.incidentOccurred ? formData.incidentLocation : null,
+      incident_description: formData.incidentOccurred ? formData.incidentDescription : null,
+      action_taken: formData.incidentOccurred ? formData.actionTaken : null,
+      notes: formData.notes || null,
+      created_at: new Date().toISOString()
+    };
 
-      // Reset form
-      setFormData({
-        location: '',
-        shiftType: '',
-        shiftStartTime: '',
-        shiftEndTime: '',
-        teamMembers: [],
-        cctvStatus: '',
-        cctvIssues: '',
-        cctvSupervisionReason: '',
-        cctvSupervisionOtherReason: '',
-        electricityStatus: '',
-        waterStatus: '',
-        officeStatus: '',
-        parkingStatus: '',
-        incidentOccurred: false,
-        incidentType: '',
-        incidentTime: '',
-        incidentLocation: '',
-        incidentDescription: '',
-        actionTaken: '',
-        notes: ''
-      });
-    } catch (error) {
-      console.error('Error submitting report:', error);
-      showToast('Failed to submit report. Please try again.', 'error');
-    } finally {
-      setLoading(false);
-      setIsConfirmDialogOpen(false);
+    console.log('Submitting data to Supabase:', submissionData);
+
+    // Insert data into the guard_shift_reports table
+    const { error: submitError } = await supabase
+      .from('guard_shift_reports')
+      .insert([submissionData]);
+
+    if (submitError) {
+      console.error('Supabase error:', submitError);
+      throw submitError;
     }
-  };
+    
+    showToast('Report submitted successfully!', 'success');
+
+    // Reset form
+    setFormData({
+      location: '',
+      shiftType: '',
+      shiftStartTime: '',
+      shiftEndTime: '',
+      teamMembers: [],
+      cctvStatus: '',
+      cctvIssues: '',
+      cctvSupervisionReason: '',
+      cctvSupervisionOtherReason: '',
+      electricityStatus: '',
+      waterStatus: '',
+      officeStatus: '',
+      parkingStatus: '',
+      incidentOccurred: false,
+      incidentType: '',
+      incidentTime: '',
+      incidentLocation: '',
+      incidentDescription: '',
+      actionTaken: '',
+      notes: ''
+    });
+  } catch (error) {
+    console.error('Error submitting report:', error);
+    showToast('Failed to submit report. Please try again.', 'error');
+  } finally {
+    setLoading(false);
+    setIsConfirmDialogOpen(false);
+  }
+};
 
   const initiateSubmit = (e) => {
     e.preventDefault();
