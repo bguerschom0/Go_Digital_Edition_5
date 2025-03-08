@@ -95,10 +95,10 @@ export const AuthProvider = ({ children }) => {
             })
             .eq('id', userData.id);
             
-          // Use only user_role_v4 for role
+          // Use only role for role
           const userWithRole = {
             ...userData,
-            role: userData.user_role_v4,
+            role: userData.role,
             failed_login_attempts: 0
           };
           
@@ -199,10 +199,10 @@ export const AuthProvider = ({ children }) => {
 
       if (updateError) console.error('Error updating last login:', updateError);
 
-      // Use only user_role_v4 for role
+      // Use only role for role
       const userWithRole = {
         ...userData,
-        role: userData.user_role_v4,
+        role: userData.role,
         failed_login_attempts: 0
       };
 
@@ -252,10 +252,10 @@ export const AuthProvider = ({ children }) => {
 
       if (fetchError) throw fetchError;
 
-      // Use only user_role_v4 for role
+      // Use only role for role
       const updatedUserWithRole = {
         ...updatedUser,
-        role: updatedUser.user_role_v4
+        role: updatedUser.role
       };
 
       // Update user in state and localStorage
