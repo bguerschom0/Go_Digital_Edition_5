@@ -134,7 +134,8 @@ const InternshipOverview = () => {
                 Internship Overview
               </h1>
               <Button 
-                className="bg-[#0A2647] hover:bg-[#0A2647]/90 dark:bg-blue-600 dark:hover:bg-blue-700"
+                className="flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg
+                      hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
                 onClick={handleExport}
               >
                 <Download className="w-4 h-4 mr-2" />
