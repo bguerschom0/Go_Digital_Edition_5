@@ -10,15 +10,15 @@ import {
   Users,
   Clock
 } from 'lucide-react';
-import { supabase } from '@/config/supabase';
-import { Button } from '@/components/ui/button';
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { supabase } from '../../config/supabase';
+import { Button } from '../../components/ui/button';
+import { Card, CardHeader, CardTitle, CardContent } from '../../components/ui/card';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { format } from 'date-fns';
-import { useAuth } from '@/context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 import Papa from 'papaparse';
-import departments from '@/departments';
+import departments from './departments';
 
 const InternshipOverview = () => {
   const navigate = useNavigate();
