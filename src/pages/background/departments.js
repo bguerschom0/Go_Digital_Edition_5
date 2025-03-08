@@ -12,7 +12,7 @@ const departments = [
   { id: 'dept_9', name: 'MTNR IT' },
   { id: 'dept_10', name: 'MTNR Network' },
   { id: 'dept_11', name: 'MTNR Risk & Compliance' },
-  { id: 'dept_12', name: 'MTNR Sales and Distribution' }
+  { id: 'dept_12', name: 'MTNR Sales and Distribution' },
 
 
   { id: 'dept_20', name: 'MMRL Business Analytics & Reporting' },
@@ -23,19 +23,7 @@ const departments = [
   { id: 'dept_25', name: 'MMRL Legal' },
   { id: 'dept_26', name: 'MMRL Operation & Service Delivery' },
   { id: 'dept_27', name: 'MMRL Product & Services' },
-  { id: 'dept_28', name: 'MMRL Risk & Compliance' },
-
-
-
-
-
-
-
-
-
-
-
-
+  { id: 'dept_28', name: 'MMRL Risk & Compliance' }
 
 
 
