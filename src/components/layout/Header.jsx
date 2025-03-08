@@ -107,12 +107,20 @@ const Header = () => {
   // Helper function to display role name
   const getRoleDisplayName = (role) => {
     switch(role) {
-      case 'administrator':
+      case 'admin':
         return 'Administrator';
-      case 'organization':
-        return 'Organization';
+      case 'manager':
+        return 'Manager';
+      case 'supervisor':
+        return 'Supervisor';
+      case 'security_guard':
+        return 'Security Guard';
       case 'user':
         return 'User';
+      case 'user1':
+        return 'User Level 1';
+      case 'user2':
+        return 'User Level 2';
       default:
         return role;
     }
