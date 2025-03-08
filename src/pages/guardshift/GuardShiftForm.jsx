@@ -274,8 +274,8 @@ const GuardShiftForm = () => {
                     type="button"
                     onClick={addTeamMember}
                     disabled={!newTeamMember.id || !newTeamMember.name}
-                    className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 
-                             transition-colors duration-200 disabled:bg-gray-400"
+                    className="flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg
+                      hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
                   >
                     Add
                   </button>
@@ -600,9 +600,8 @@ const GuardShiftForm = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="px-6 py-2 bg-black text-white rounded-lg hover:bg-gray-800 
-                         transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed
-                         flex items-center gap-2"
+                className="flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg
+                      hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
               >
                 {loading && <Loader2 className="w-4 h-4 animate-spin" />}
                 Submit Report
