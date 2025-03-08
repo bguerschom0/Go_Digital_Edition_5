@@ -6,9 +6,9 @@ import {
   Loader2,
   AlertCircle
 } from 'lucide-react';
-import { supabase } from '@/config/supabase';
-import { useAuth } from '@/context/AuthContext';
-import departments from '@/departments';
+import { supabase } from '../../config/supabase';
+import { useAuth } from '../../context/AuthContext';
+import departments from './departments';
  
 // Alert/Popup Component
 const Alert = ({ message, type = 'error', onClose, onConfirm }) => (
