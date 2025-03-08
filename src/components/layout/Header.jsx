@@ -124,6 +124,20 @@ const Header = () => {
         return role;
     }
   };
+  
+  // Helper function to create a short version of the name
+  const getShortName = (fullName) => {
+    if (!fullName) return '';
+    
+    const nameParts = fullName.split(' ');
+    if (nameParts.length === 1) return nameParts[0];
+    
+    // If there are two or more parts, return first name and last initial
+    const firstName = nameParts[0];
+    const lastName = nameParts[nameParts.length - 1];
+    
+    return `${firstName} ${lastName.charAt(0)}.`;
+  };
 
   return (
     <>
@@ -154,12 +168,6 @@ const Header = () => {
               <nav className="flex items-center space-x-6">
                 {navigationItems.map((item) => {
                   const Icon = item.icon;
-                  // Create short name by taking the first letter of each word
-                  const shortName = item.name
-                    .split(' ')
-                    .map(word => word.charAt(0))
-                    .join('');
-                    
                   return item.children ? (
                     <div 
                       key={item.name}
@@ -171,7 +179,7 @@ const Header = () => {
                                        text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 
                                        transition-colors whitespace-nowrap">
                         <Icon className="h-4 w-4 mr-2" />
-                        {openSubmenu === item.name ? item.name : shortName}
+                        {item.name}
                         <ChevronDown className="h-4 w-4 ml-1" />
                       </button>
                       {openSubmenu === item.name && (
@@ -197,17 +205,12 @@ const Header = () => {
                     <Link
                       key={item.path}
                       to={item.path}
-                      className="group flex items-center px-3 py-2 rounded-md text-sm font-medium 
+                      className="flex items-center px-3 py-2 rounded-md text-sm font-medium 
                                text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 
-                               transition-colors whitespace-nowrap relative"
-                      onMouseEnter={(e) => e.currentTarget.querySelector('.full-name').classList.remove('hidden')}
-                      onMouseLeave={(e) => e.currentTarget.querySelector('.full-name').classList.add('hidden')}
+                               transition-colors whitespace-nowrap"
                     >
                       <Icon className="h-4 w-4 mr-2" />
-                      <span className="short-name">{shortName}</span>
-                      <span className="full-name hidden absolute left-0 top-full mt-1 w-auto bg-white dark:bg-gray-800 px-3 py-2 rounded-md shadow-lg z-10 whitespace-nowrap">
-                        {item.name}
-                      </span>
+                      {item.name}
                     </Link>
                   );
                 })}
@@ -226,7 +229,7 @@ const Header = () => {
                       <User className="h-5 w-5 text-gray-600 dark:text-gray-300" />
                     </div>
                     <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
-                      {user.full_name}
+                      {isDropdownOpen ? user.full_name : getShortName(user.full_name)}
                     </span>
                     <ChevronDown className="h-4 w-4 text-gray-600 dark:text-gray-400" />
                   </button>
@@ -303,12 +306,6 @@ const Header = () => {
               <nav className="flex-1 px-4 py-4 space-y-2 overflow-y-auto">
                 {navigationItems.map((item) => {
                   const Icon = item.icon;
-                  // Create short name by taking the first letter of each word
-                  const shortName = item.name
-                    .split(' ')
-                    .map(word => word.charAt(0))
-                    .join('');
-                    
                   return item.children ? (
                     <div key={item.name} className="space-y-2">
                       <button
@@ -317,7 +314,7 @@ const Header = () => {
                                  text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800"
                       >
                         <Icon className="h-4 w-4 mr-2" />
-                        {openSubmenu === item.name ? item.name : shortName}
+                        {item.name}
                         <ChevronDown className={`h-4 w-4 ml-auto transform transition-transform ${
                           openSubmenu === item.name ? 'rotate-180' : ''
                         }`} />
@@ -343,22 +340,16 @@ const Header = () => {
                       )}
                     </div>
                   ) : (
-                    <div key={item.path} className="relative">
-                      <Link
-                        to={item.path}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="flex items-center px-3 py-2 rounded-md text-sm font-medium 
-                                 text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800"
-                      >
-                        <Icon className="h-4 w-4 mr-2" />
-                        <span>{shortName}</span>
-                      </Link>
-                      <div className="flex items-center justify-end">
-                        <span className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                          {item.name}
-                        </span>
-                      </div>
-                    </div>
+                    <Link
+                      key={item.path}
+                      to={item.path}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="flex items-center px-3 py-2 rounded-md text-sm font-medium 
+                               text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800"
+                    >
+                      <Icon className="h-4 w-4 mr-2" />
+                      {item.name}
+                    </Link>
                   );
                 })}
               </nav>
