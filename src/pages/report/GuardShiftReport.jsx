@@ -311,7 +311,7 @@ const notesY = incidentReportY + incidentReportHeight + 30; // 30px gap
         <!-- Header -->
         <div style="position: absolute; left: 35px; top: 0; width: 765px; height: 100px; border-bottom: 1px solid #e0e0e0; background-color: #f9f9f9; display: flex; justify-content: space-between; align-items: flex-start; padding: 20px 0;">
           <div style="margin-left: 35px;">
-            <h1 style="margin: 0; font-size: 28px; color: #2c3e50; font-weight: bold; text-transform: uppercase;">Security Shift Report</h1>
+            <h1 style="margin: 0; font-size: 28px; color: #2c3e50; font-weight: bold; text-transform: uppercase;">Guard Shift Report</h1>
             <p style="margin: 5px 0 0 0; font-size: 14px; color: #555; font-weight: normal;">Detailed documentation of security observations and incidents</p>
           </div>
           <div style="margin-right: 20px; text-align: right;">
@@ -330,7 +330,7 @@ const notesY = incidentReportY + incidentReportHeight + 30; // 30px gap
           
           <!-- Column 2: Shift Type -->
           <div style="border: 1px solid #e0e0e0;">
-            <div style="background-color: #f9f9f9; padding: 8px 10px; font-size: 12px; color: #5d6d7e; font-weight: bold;">SHIFT TYPE</div>
+            <div style="background-color: #f9f9f9; padding: 8px 10px; font-size: 12px; color: #5d6d7e; font-weight: bold;">SHIFT</div>
             <div style="padding: 10px; font-size: 16px; color: #2c3e50;">${report.shift_type?.toUpperCase() || 'Not specified'}</div>
           </div>
           
@@ -554,7 +554,7 @@ const notesY = incidentReportY + incidentReportHeight + 30; // 30px gap
 
         <!-- Footer -->
         <div style="position: absolute; left: 0; bottom: 10px; width: 100%; text-align: center; padding: 10px 0; border-top: 1px solid #e0e0e0;">
-          <div style="font-size: 12px; color: #7f8c8d;">Generated on ${new Date().toLocaleString()} • Security Operations Department</div>
+          <div style="font-size: 12px; color: #7f8c8d;">Generated on ${new Date().toLocaleString()} • MTNR Security & Safety</div>
           <div style="font-size: 12px; color: #7f8c8d; margin-top: 5px;">CONFIDENTIAL • Page 1 of 1</div>
         </div>
       </div>
@@ -953,25 +953,25 @@ const notesY = incidentReportY + incidentReportHeight + 30; // 30px gap
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
   <StatusCard
     icon={FileText}
-    label="Total Reports (Last 7 Days)"
+    label="Total Reports (In 7 Days)"
     value={stats.totalReports}
     color="text-blue-600 dark:text-blue-500"
   />
   <StatusCard
     icon={CheckCircle}
-    label="Normal Reports (Last 7 Days)"
+    label="Normal Reports (In 7 Days)"
     value={stats.normalReports}
     color="text-green-600 dark:text-green-500"
   />
   <StatusCard
     icon={AlertTriangle}
-    label="Reports with Issues (Last 7 Days)"
+    label="Reports with Issues (In 7 Days)"
     value={stats.issuesReports}
     color="text-yellow-600 dark:text-yellow-500"
   />
   <StatusCard
     icon={AlertCircle}
-    label="Incident Reports (Last 7 Days)"
+    label="Incident Reports (In 7 Days)"
     value={stats.incidentReports}
     color="text-red-600 dark:text-red-500"
   />
