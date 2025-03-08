@@ -32,7 +32,7 @@ import {
 import { supabase } from '../../config/supabase';
 import * as XLSX from 'xlsx';
 
-const GuardShiftReportViewer = () => {
+const GuardShiftReport = () => {
   // Helper function to get week dates
   const getWeekDates = () => {
     const today = new Date();
@@ -1336,4 +1336,4 @@ const notesY = incidentReportY + incidentReportHeight + 30; // 30px gap
   );
 };
 
-export default GuardShiftReportViewer;
+export default GuardShiftReport;
