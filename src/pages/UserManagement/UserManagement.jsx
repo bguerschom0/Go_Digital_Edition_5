@@ -45,13 +45,15 @@ const UserModal = ({ isOpen, mode, user, onClose, onSubmit }) => {
     }
   }, [user]);
 
-  const roles = [
-    { value: 'admin', label: 'Administrator' },
-    { value: 'manager', label: 'Manager' },
-    { value: 'supervisor', label: 'Supervisor' },
-    { value: 'security_guard', label: 'Security Guard' },
-    { value: 'user', label: 'User' }
-  ];
+const roles = [
+  { value: 'admin', label: 'Administrator' },
+  { value: 'manager', label: 'Manager' },
+  { value: 'supervisor', label: 'Supervisor' },
+  { value: 'security_guard', label: 'Security Guard' },
+  { value: 'user', label: 'User' },
+  { value: 'user1', label: 'User Level 1' },
+  { value: 'user2', label: 'User Level 2' }
+];
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -398,13 +400,15 @@ const UserManagement = () => {
   const [userToUnlock, setUserToUnlock] = useState(null);
 
   // Available roles
-  const roles = [
-    { value: 'admin', label: 'Administrator' },
-    { value: 'manager', label: 'Manager' },
-    { value: 'supervisor', label: 'Supervisor' },
-    { value: 'security_guard', label: 'Security Guard' },
-    { value: 'user', label: 'User' }
-  ];
+const roles = [
+  { value: 'admin', label: 'Administrator' },
+  { value: 'manager', label: 'Manager' },
+  { value: 'supervisor', label: 'Supervisor' },
+  { value: 'security_guard', label: 'Security Guard' },
+  { value: 'user', label: 'User' },
+  { value: 'user1', label: 'User Level 1' },
+  { value: 'user2', label: 'User Level 2' }
+];
 
   useEffect(() => {
     fetchUsers();
@@ -598,23 +602,27 @@ const UserManagement = () => {
     }
   };
 
-  // Get display role text
-  const getDisplayRole = (role) => {
-    switch(role) {
-      case 'admin':
-        return 'Administrator';
-      case 'manager':
-        return 'Manager';
-      case 'supervisor':
-        return 'Supervisor';
-      case 'security_guard':
-        return 'Security Guard';
-      case 'user':
-        return 'User';
-      default:
-        return role || 'N/A';
-    }
-  };
+// Get display role text
+const getDisplayRole = (role) => {
+  switch(role) {
+    case 'admin':
+      return 'Administrator';
+    case 'manager':
+      return 'Manager';
+    case 'supervisor':
+      return 'Supervisor';
+    case 'security_guard':
+      return 'Security Guard';
+    case 'user':
+      return 'User';
+    case 'user1':
+      return 'User Level 1';
+    case 'user2':
+      return 'User Level 2';
+    default:
+      return role || 'N/A';
+  }
+};
 
   // Calculate pagination
   const indexOfLastItem = currentPage * itemsPerPage;
