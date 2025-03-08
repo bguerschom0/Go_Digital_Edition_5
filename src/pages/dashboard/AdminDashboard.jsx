@@ -18,7 +18,10 @@ import { useAuth } from '../../context/AuthContext';
 import { supabase } from '../../config/supabase';
 
 const AdminDashboard = () => {
-  const { user } = useAuth();
+  // Add a conditional check to prevent destructuring undefined
+  const auth = useAuth();
+  const user = auth?.user;
+  
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [stats, setStats] = useState({
@@ -128,8 +131,8 @@ const AdminDashboard = () => {
     }
   }, [loading]);
 
-  // Top departments (for the bar chart)
-  const topDepartments = Object.entries(stats.departments)
+  // Add a check to avoid "rendering objects directly" error with empty data
+  const topDepartments = Object.entries(stats.departments || {})
     .sort((a, b) => b[1] - a[1])
     .slice(0, 5);
 
@@ -140,6 +143,8 @@ const AdminDashboard = () => {
       </div>
     );
   }
+
+  const username = user?.full_name || user?.username || 'Admin';
 
   return (
     <div className="p-6">
@@ -152,7 +157,7 @@ const AdminDashboard = () => {
             transition={{ duration: 0.5 }}
           >
             <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-              {getGreeting()}, {user?.full_name || user?.username}
+              {getGreeting()}, {username}
             </h1>
             <p className="mt-2 text-gray-600 dark:text-gray-400">
               Welcome to Go Digital Edition 5
@@ -323,8 +328,10 @@ const AdminDashboard = () => {
               {topDepartments.length > 0 ? (
                 <div className="space-y-4">
                   {topDepartments.map(([department, count], i) => {
-                    // Calculate percentage
-                    const percentage = Math.round((count / stats.activeInternships) * 100) || 0;
+                    // Calculate percentage - add check to avoid division by zero
+                    const percentage = stats.activeInternships > 0 
+                      ? Math.round((count / stats.activeInternships) * 100) 
+                      : 0;
                     
                     return (
                       <div key={department} className="space-y-2">
