@@ -1,7 +1,7 @@
 
 const departments = [
 
-  { id: 'dept_1', name: 'MTNR CEO's Office' },
+  { id: 'dept_1', name: 'MTNR CEOs Office' },
   { id: 'dept_2', name: 'MTNR Consumer' },
   { id: 'dept_3', name: 'MTNR Customer Operation & Customer Expaerience' },
   { id: 'dept_4', name: 'MTNR Corporate Services' },
@@ -16,7 +16,7 @@ const departments = [
 
 
   { id: 'dept_20', name: 'MMRL Business Analytics & Reporting' },
-  { id: 'dept_21', name: 'MMRL CEO's Office' },
+  { id: 'dept_21', name: 'MMRL CEOs Office' },
   { id: 'dept_22', name: 'MMRL Commercial' },
   { id: 'dept_23', name: 'MMRL Finance' },
   { id: 'dept_24', name: 'MMRL Internal Audit' },
