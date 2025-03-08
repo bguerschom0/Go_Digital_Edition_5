@@ -75,15 +75,15 @@ const App = () => {
       <Route path="/managerdashboard" element={<ProtectedRoute requiredRoles={['admin','manager']}><AuthenticatedLayout><ManagerDashboard /></AuthenticatedLayout></ProtectedRoute>} />
       
       {/* Background Check routes */}
-      <Route path="/newbackground" element={<ProtectedRoute requiredRoles={['administrator']}><AuthenticatedLayout><NewBackground /></AuthenticatedLayout></ProtectedRoute>} />
-      <Route path="/internshipoverview" element={<ProtectedRoute requiredRoles={['administrator','user']}><AuthenticatedLayout><InternshipOverview /></AuthenticatedLayout></ProtectedRoute>} />
-      <Route path="/updatebackground" element={<ProtectedRoute requiredRoles={['administrator']}><AuthenticatedLayout><UpdateBackground /></AuthenticatedLayout></ProtectedRoute>} />
+      <Route path="/newbackground" element={<ProtectedRoute requiredRoles={['admin']}><AuthenticatedLayout><NewBackground /></AuthenticatedLayout></ProtectedRoute>} />
+      <Route path="/internshipoverview" element={<ProtectedRoute requiredRoles={['admin','user']}><AuthenticatedLayout><InternshipOverview /></AuthenticatedLayout></ProtectedRoute>} />
+      <Route path="/updatebackground" element={<ProtectedRoute requiredRoles={['admin']}><AuthenticatedLayout><UpdateBackground /></AuthenticatedLayout></ProtectedRoute>} />
 
       {/* User Management routes - only for administrators */}
-      <Route path="/user-management" element={<ProtectedRoute requiredRoles={['administrator']}><AuthenticatedLayout><UserManagement /></AuthenticatedLayout></ProtectedRoute>} />
+      <Route path="/user-management" element={<ProtectedRoute requiredRoles={['admin']}><AuthenticatedLayout><UserManagement /></AuthenticatedLayout></ProtectedRoute>} />
       
       {/* Contact route */}
-      <Route path="/contact" element={<ProtectedRoute requiredRoles={['administrator']}><AuthenticatedLayout><Contact /></AuthenticatedLayout></ProtectedRoute>} />
+      <Route path="/contact" element={<ProtectedRoute requiredRoles={['admin']}><AuthenticatedLayout><Contact /></AuthenticatedLayout></ProtectedRoute>} />
 
       
 
