@@ -7,6 +7,8 @@ export const getRoleBasedDashboard = (role) => {
     case 'supervisor':
       return '/supervisordashboard';
     case 'user':
+    case 'user1':
+    case 'user2': 
       return '/userdashboard';
     case 'manager':
       return '/managerdashboard';
