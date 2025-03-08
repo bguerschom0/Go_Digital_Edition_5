@@ -24,6 +24,10 @@ import NewBackground from './pages/background/NewBackground';
 import UpdateBackground from './pages/background/UpdateBackground';
 import InternshipOverview from './pages/background/InternshipOverview';
 
+// GuardShift Pages
+import GuardShiftForm from './pages/guardshift/GuardShiftForm';
+import GuardShiftReport from './pages/report/GuardShiftReport';
+
 
 // Contact Page
 import Contact from './pages/Contact';
@@ -79,8 +83,12 @@ const App = () => {
       <Route path="/internshipoverview" element={<ProtectedRoute requiredRoles={['admin','user']}><AuthenticatedLayout><InternshipOverview /></AuthenticatedLayout></ProtectedRoute>} />
       <Route path="/updatebackground" element={<ProtectedRoute requiredRoles={['admin']}><AuthenticatedLayout><UpdateBackground /></AuthenticatedLayout></ProtectedRoute>} />
 
-      {/* User Management routes - only for administrators */}
+      {/* User Management routes */}
       <Route path="/user-management" element={<ProtectedRoute requiredRoles={['admin']}><AuthenticatedLayout><UserManagement /></AuthenticatedLayout></ProtectedRoute>} />
+
+     {/* GuardShift  routes */}
+     <Route path="/GuardShiftForm" element={<ProtectedRoute requiredRoles={['admin', 'security_guard', 'supervisor']}><AuthenticatedLayout><GuardShiftForm /></AuthenticatedLayout></ProtectedRoute>} />
+     <Route path="/GuardShiftReport" element={<ProtectedRoute requiredRoles={['admin', 'supervisor']}><AuthenticatedLayout><GuardShiftReport /></AuthenticatedLayout></ProtectedRoute>} />
       
       {/* Contact route */}
       <Route path="/contact" element={<ProtectedRoute requiredRoles={['admin']}><AuthenticatedLayout><Contact /></AuthenticatedLayout></ProtectedRoute>} />
