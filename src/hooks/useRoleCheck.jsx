@@ -53,6 +53,32 @@ const useRoleCheck = () => {
   };
 
   /**
+   * Check if current user has the user1 role
+   * @returns {boolean} - True if user has the user1 role
+   */
+  const isUser1 = () => {
+    if (!user) return false;
+    return user.role === 'user1';
+  };
+
+  /**
+   * Check if current user has the user2 role
+   * @returns {boolean} - True if user has the user2 role
+   */
+  const isUser2 = () => {
+    if (!user) return false;
+    return user.role === 'user2';
+  };
+
+  /**
+   * Check if the user has any type of user role (basic, user1, or user2)
+   * @returns {boolean} - True if user has any of the user roles
+   */
+  const isAnyUserRole = () => {
+    return isBasicUser() || isUser1() || isUser2();
+  };
+
+  /**
    * Check if the user has any of the specified roles
    * @param {Array<string>} roles - Array of roles to check
    * @returns {boolean} - True if user has any of the specified roles
@@ -71,11 +97,13 @@ const useRoleCheck = () => {
     if (!user) return false;
     
     const roleHierarchy = {
-      'admin': 5,
-      'manager': 4,
-      'supervisor': 3,
-      'security_guard': 2,
-      'user': 1
+      'admin': 7,
+      'manager': 6,
+      'supervisor': 5,
+      'security_guard': 4,
+      'user': 3,
+      'user1': 2,
+      'user2': 1
     };
     
     const userRoleValue = roleHierarchy[user.role] || 0;
@@ -121,7 +149,7 @@ const useRoleCheck = () => {
    * @returns {boolean} - True if user is restricted to viewing assigned incidents
    */
   const canOnlyViewAssignedIncidents = () => {
-    return isSecurityGuard() || isBasicUser();
+    return isSecurityGuard() || isBasicUser() || isUser1() || isUser2();
   };
 
   /**
@@ -162,6 +190,9 @@ const useRoleCheck = () => {
     isSupervisor,
     isSecurityGuard,
     isBasicUser,
+    isUser1,
+    isUser2,
+    isAnyUserRole,
     hasAnyRole,
     hasMinimumRole,
     canManageUsers,
