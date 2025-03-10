@@ -80,7 +80,7 @@ const App = () => {
       
       {/* Background Check routes */}
       <Route path="/newbackground" element={<ProtectedRoute requiredRoles={['admin']}><AuthenticatedLayout><NewBackground /></AuthenticatedLayout></ProtectedRoute>} />
-      <Route path="/internshipoverview" element={<ProtectedRoute requiredRoles={['admin','user', 'user1','security_guard','manager', 'security_guard']}><AuthenticatedLayout><InternshipOverview /></AuthenticatedLayout></ProtectedRoute>} />
+      <Route path="/internshipoverview" element={<ProtectedRoute requiredRoles={['admin','user', 'user1','security_guard','manager', 'supervisor']}><AuthenticatedLayout><InternshipOverview /></AuthenticatedLayout></ProtectedRoute>} />
       <Route path="/updatebackground" element={<ProtectedRoute requiredRoles={['admin']}><AuthenticatedLayout><UpdateBackground /></AuthenticatedLayout></ProtectedRoute>} />
 
       {/* User Management routes */}
