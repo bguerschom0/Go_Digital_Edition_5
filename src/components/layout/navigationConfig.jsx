@@ -76,6 +76,11 @@ export const roleBasedNavigation = {
       path: '/GuardShiftForm', 
       icon: ClipboardList
     },
+    {
+      name: 'Internship Overview',
+      path: '/internshipoverview',
+      icon: GraduationCap
+    }
   ],
   security_guard: [
     { 
